@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6765639604500597515}
   - component: {fileID: 1184332991472926486}
+  - component: {fileID: 1506132972}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -83,6 +84,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1506132972
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980324333343085109}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 1.5}
+    newSize: {x: 3, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1.5}
+  m_EdgeRadius: 0
 --- !u!1 &7499672505292657055
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +119,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7499672505292657054}
-  - component: {fileID: 7499672505292657052}
   m_Layer: 0
   m_Name: Locomotive Sprite
   m_TagString: Untagged
@@ -107,26 +133,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7499672505292657055}
-  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7186937894451551595}
   m_Father: {fileID: 7499672506390384378}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
---- !u!114 &7499672505292657052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7499672505292657055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04a6ccf2a3aa1f428cfa6da75a8c5ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7499672505785007500
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,9 +150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7499672505785007499}
-  - component: {fileID: 7499672505785007498}
   - component: {fileID: 6568672033806058030}
-  - component: {fileID: 1594402596}
   m_Layer: 0
   m_Name: Train
   m_TagString: Train
@@ -161,19 +173,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7499672505785007498
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7499672505785007500}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.5, y: 2, z: 1}
-  m_Center: {x: 1.375, y: 1, z: 0}
 --- !u!114 &6568672033806058030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,22 +189,6 @@ MonoBehaviour:
   AttackDamage: 0
   MaxHealth: 500
   CurrentHealth: 500
---- !u!54 &1594402596
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7499672505785007500}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 124
-  m_CollisionDetection: 0
 --- !u!1 &7499672506170994209
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +198,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7499672506170994208}
-  - component: {fileID: 7499672506170994238}
   m_Layer: 0
   m_Name: Coal Wagon Sprite
   m_TagString: Untagged
@@ -230,26 +212,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7499672506170994209}
-  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6765639604500597515}
   m_Father: {fileID: 7499672506390384378}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
---- !u!114 &7499672506170994238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7499672506170994209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04a6ccf2a3aa1f428cfa6da75a8c5ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7499672506390384379
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +229,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7499672506390384378}
+  - component: {fileID: 800561299}
+  - component: {fileID: 800561298}
   m_Layer: 0
   m_Name: Sprites
   m_TagString: Untagged
@@ -274,7 +246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7499672506390384379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7499672505292657054}
@@ -282,6 +254,75 @@ Transform:
   m_Father: {fileID: 7499672505785007499}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &800561299
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7499672506390384379}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
+--- !u!66 &800561298
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7499672506390384379}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1167053145}
+    m_ColliderPaths:
+    - - X: 23999707
+        Y: -10000000
+      - X: 23999707
+        Y: 10000000
+      - X: -24000000
+        Y: 9999707
+      - X: -23999707
+        Y: -10000000
+  - m_Collider: {fileID: 1506132972}
+    m_ColliderPaths:
+    - - X: 50999711
+        Y: -10000000
+      - X: 50999711
+        Y: 5000000
+      - X: 21000004
+        Y: 4999707
+      - X: 21000297
+        Y: -10000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 5.0999417, y: -1}
+      - {x: 5.0999417, y: 0.5}
+      - {x: 2.3999708, y: 0.500003}
+      - {x: 2.3999414, y: 1}
+      - {x: -2.4, y: 0.9999414}
+      - {x: -2.3999414, y: -1}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1 &9179451169264106350
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7186937894451551595}
   - component: {fileID: 4406353027848782586}
+  - component: {fileID: 1167053145}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -365,3 +407,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1167053145
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179451169264106350}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.8, y: 2}
+    newSize: {x: 0.48, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.8, y: 2}
+  m_EdgeRadius: 0

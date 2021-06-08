@@ -28,7 +28,7 @@ public abstract class ActorController : MonoBehaviour
     void FixedUpdate()
     {
         movement = GetMovement();
-        actorRigidbody.MovePosition(transform.position + movement.normalized * MoveSpeed * Time.fixedDeltaTime);
+        transform.position += movement.normalized * MoveSpeed * Time.fixedDeltaTime;
     }
 
     protected abstract Vector3 GetMovement();
