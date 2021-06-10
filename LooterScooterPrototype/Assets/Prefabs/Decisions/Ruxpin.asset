@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b4f1d57ff597342a320a08611753e4, type: 3}
+  m_Name: Ruxpin
+  m_EditorClassIdentifier: 
+  intro: While travelling you hear a loud clanking. Upon inspection you see a humongous
+    muscled man sitting in the back car. "GIVE ME", he shouts. "GIVE ME, GIVE ME".
+  choice1:
+    decision: We will give him the whooping of his life! No stowaways allowed!
+    outro: You try to eject the large man, though in the end you have to decouple
+      the entire car he was in. The car housed a bunch of your supplies, which you
+      have to leave behind to rid yourself of the angry stowaway. -<color=#FF0000>3</color><sprite
+      name="Food"> -<color=#FF0000>3</color><sprite name="Fuel"> -<color=#FF0000>3</color><sprite
+      name="Ammo">
+    allowPartialPayment: 1
+    foodcost: 3
+    foodgain: 0
+    fuelcost: 3
+    fuelgain: 0
+    teddycost: 0
+    teddygain: 0
+    ammocost: 3
+    ammogain: 0
+  choice2:
+    decision: Try to placate the giant with a Teddy Bear
+    outro: You try a hail Mary and throw your teddy bear into the car with the giant.
+      "RUXPIN!" he bellows. He nearly squeezes the life out of Ruxpin before leaping
+      of the back of the train, dissappearing into the country side.
+    allowPartialPayment: 0
+    foodcost: 0
+    foodgain: 0
+    fuelcost: 0
+    fuelgain: 0
+    teddycost: 1
+    teddygain: 0
+    ammocost: 0
+    ammogain: 0
+  showEnemy: 1

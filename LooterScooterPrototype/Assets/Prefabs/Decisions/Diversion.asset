@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b4f1d57ff597342a320a08611753e4, type: 3}
+  m_Name: Diversion
+  m_EditorClassIdentifier: 
+  intro: While travelling you encounter a switch track with a sign. It warns the
+    rails ahead are damaged. Switching and taking a different route could take take
+    longer...
+  choice1:
+    decision: Stay on the path. We will simply need to be careful.
+    outro: You travel on the damaged rails and the train shakes mercilessly. While
+      inspecting the damage you find that two boxes of ammunition have bounced of
+      the train.  -<color=#FF0000>30</color><sprite name="Ammo">
+    allowPartialPayment: 1
+    foodcost: 0
+    foodgain: 0
+    fuelcost: 0
+    fuelgain: 0
+    teddycost: 0
+    teddygain: 0
+    ammocost: 30
+    ammogain: 0
+  choice2:
+    decision: Let's play it safe. Take the long way around.
+    outro: You take the long way around. Although this adds several days to the journey,
+      the travel conditions are excellent.  -<color=#FF0000>5</color><sprite name="Fuel">
+    allowPartialPayment: 1
+    foodcost: 0
+    foodgain: 0
+    fuelcost: 5
+    fuelgain: 0
+    teddycost: 0
+    teddygain: 0
+    ammocost: 0
+    ammogain: 0
+  showEnemy: 0
