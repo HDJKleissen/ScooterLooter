@@ -12,6 +12,14 @@ public class PlayerController : ActorController
         
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        Vector3 mousePlayerDiff = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
+        //TODO: set gun held distance from player to more meaningful value
+        currentGun.transform.position = transform.position + mousePlayerDiff.normalized;
+    }
+
     protected override Vector3 GetMovement()
     {
         return new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0 ).normalized;
