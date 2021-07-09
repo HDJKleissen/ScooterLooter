@@ -19,7 +19,7 @@ public abstract class ActorController : MonoBehaviour
         actorRigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         DoAttacking();
     }

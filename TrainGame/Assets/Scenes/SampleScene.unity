@@ -289,6 +289,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &509825753 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6357887442600848096, guid: d3d5d76976835fd49a50ed51fafecf18, type: 3}
+  m_PrefabInstance: {fileID: 1020395724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233441873dacc8d4084ed40da783eaac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -30431,8 +30442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e4e178eb842d245a7200a0f8e9a9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Train: {fileID: 0}
+  Player: {fileID: 509825753}
+  Train: {fileID: 1618979780}
 --- !u!4 &898864993
 Transform:
   m_ObjectHideFlags: 0
@@ -30454,6 +30465,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 652071560992230550, guid: d3d5d76976835fd49a50ed51fafecf18, type: 3}
+      propertyPath: MaxShots
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 652071560992230550, guid: d3d5d76976835fd49a50ed51fafecf18, type: 3}
+      propertyPath: BulletSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 652071560992230550, guid: d3d5d76976835fd49a50ed51fafecf18, type: 3}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 2542933947316825999, guid: c6145678d4fa618488a80ba82005085a, type: 3}
+    - target: {fileID: 652071560992230550, guid: d3d5d76976835fd49a50ed51fafecf18, type: 3}
+      propertyPath: ShotsRemaining
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 652071560992230550, guid: d3d5d76976835fd49a50ed51fafecf18, type: 3}
+      propertyPath: TimeBetweenShots
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 652071560992230550, guid: d3d5d76976835fd49a50ed51fafecf18, type: 3}
+      propertyPath: TimeBetweenReloads
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4247542107188968931, guid: d3d5d76976835fd49a50ed51fafecf18, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -30660,6 +30695,17 @@ Transform:
   m_Father: {fileID: 1322589166}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1618979780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6568672033806058030, guid: 5b5547ca14cbf0945962003d58092356, type: 3}
+  m_PrefabInstance: {fileID: 1876857734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8485d38758c2de84c9eba1f421bd65c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1876857734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30750,6 +30796,14 @@ PrefabInstance:
     - target: {fileID: 800561298, guid: 5b5547ca14cbf0945962003d58092356, type: 3}
       propertyPath: m_ColliderPaths.Array.data[1].m_ColliderPaths.Array.data[0].Array.data[3].Y
       value: -7500000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184332991472926486, guid: 5b5547ca14cbf0945962003d58092356, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406353027848782586, guid: 5b5547ca14cbf0945962003d58092356, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7499672505785007499, guid: 5b5547ca14cbf0945962003d58092356, type: 3}
       propertyPath: m_RootOrder
