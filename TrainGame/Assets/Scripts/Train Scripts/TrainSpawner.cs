@@ -15,20 +15,38 @@ public class TrainSpawner : MonoBehaviour
     private bool spawnedLocomotive;
     private float cartSizeHalved;
 
-    private float cartDistance;
+    private float spawnDistance;
+    private int cartsRemaining;
+    private GameObject lastCreatedCart;
+
+    void Start()
+    {
+        cartsRemaining = AmountOfCarts;
+    }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         timeToNextCart = timeToNextCart - Time.deltaTime;
-        if(timeToNextCart <= 0)
+        if(timeToNextCart <= 0 && cartsRemaining > 0)
         {
-            timeToNextCart = SpawnInterval;
-            var newCart = Instantiate(GetCurrentCartToSpawn(),transform.position,transform.rotation);
-            var cartMovement = newCart.GetComponent<CartMovement>();
-            cartMovement.CurrentGoal = CartGoal;
-            cartMovement.SpeedPerSec = TrainSpeed;
+            SpawnCart();
+            cartsRemaining -= 1;
         }
+    }
+
+    void SpawnCart(){
+        var cartPosition = transform.position;
+        if(lastCreatedCart != null){
+            var lastCartPosition = lastCreatedCart.transform.position;
+            lastCartPosition.x += spawnDistance;
+            cartPosition = lastCartPosition;
+        }
+        lastCreatedCart = Instantiate(GetCurrentCartToSpawn(),cartPosition,transform.rotation);
+        var cartMovement = lastCreatedCart.GetComponent<CartMovement>();
+        cartMovement.CurrentGoal = CartGoal;
+        cartMovement.SpeedPerSec = TrainSpeed;
+        timeToNextCart = SpawnInterval;
     }
 
     //To be filled at a later date with code to determine what to spawn
@@ -45,19 +63,20 @@ public class TrainSpawner : MonoBehaviour
 
     void CalculateTimeToNextCar()
     {
-        if(cartDistance == 0){
+        if(spawnDistance == 0)
+        {
             var locomotiveRenderer = Locomotive.GetComponent<SpriteRenderer>();
             var locomotiveHalfSize = locomotiveRenderer.bounds.size.x/2;
             var cartRenderer = CartToSpawn.GetComponent<SpriteRenderer>();
-            cartSizeHalved = cartRenderer.bounds.size.x/4;
-            cartDistance = cartSizeHalved + locomotiveHalfSize;
-            SpawnInterval = cartDistance / TrainSpeed;
-        
-            cartDistance = cartSizeHalved * 2;
+            cartSizeHalved = cartRenderer.bounds.size.x/2;
+            spawnDistance = cartSizeHalved + locomotiveHalfSize;
+            SpawnInterval = spawnDistance / TrainSpeed;
         }
         else
         {
-            SpawnInterval = cartDistance *2 /TrainSpeed;
+            var cartRenderer = CartToSpawn.GetComponent<SpriteRenderer>();
+            spawnDistance = cartRenderer.bounds.size.x;
+            SpawnInterval = spawnDistance /TrainSpeed;
         }
     }
 }
