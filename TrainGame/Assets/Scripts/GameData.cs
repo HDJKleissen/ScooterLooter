@@ -5,7 +5,13 @@ using UnityEngine;
 public class GameData
 {
     //Resources
-    public float Food, Ammunition, Fuel;
+    public Dictionary<Resource.ResourceType, float> Resources = new Dictionary<Resource.ResourceType, float>();
 
-
+    public void AddResource(Resource.ResourceType type, float amount)
+    {
+        if (!Resources.ContainsKey(type))
+            Resources.Add(type, Mathf.Clamp(amount, 0, float.MaxValue));
+        else    
+            Resources[type] = Mathf.Clamp(Resources[type] + amount, 0, float.MaxValue);
+    }
 }
