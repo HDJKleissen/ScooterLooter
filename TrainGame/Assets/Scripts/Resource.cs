@@ -7,5 +7,5 @@ public class Resource : PickupItem
     public ResourceType type;
     public int value;
 
-    public enum ResourceType { Trash, Fuel, Ammunition, Food }
+    public enum ResourceType { Fuel, Ammunition, Food }
 }

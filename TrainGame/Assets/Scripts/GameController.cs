@@ -8,11 +8,10 @@ public class GameController : UnitySingleton<GameController>
 
     public TrainController Train;
 
-    public GameData Data;
+    public GameData Data = new GameData();
     
     void Start()
     {
-        Data = new GameData();
         DontDestroyOnLoad(gameObject);
     }
 
