@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : ActorController
 {
     public Gun currentGun;
-
+    [SerializeField]
+    float throwStrength;
     [SerializeField]
     Transform heldItemTransform;
 
@@ -21,14 +22,18 @@ public class PlayerController : ActorController
     {
         base.Update();
         HandleInput();
-
-        Vector3 mousePlayerDiff = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
-        //TODO: set gun held distance from player to more meaningful value
-        currentGun.transform.position = transform.position + mousePlayerDiff.normalized;
     }
 
     void HandleInput()
     {
+        Vector3 mouseDirection = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
+        //TODO: set gun held distance from player to more meaningful value
+        //Point the gun towards where the mouse is pointing
+        currentGun.transform.position = transform.position + mouseDirection.normalized;
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && heldItem != null)
+            ThrowObject();
+
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             if (heldItem == null)
@@ -73,7 +78,9 @@ public class PlayerController : ActorController
     {
         heldItem = item;
         heldItem.GetComponent<Collider2D>().enabled = false;
-        heldItem.GetComponent<Rigidbody2D>().isKinematic = true;
+        Rigidbody2D rb = heldItem.GetComponent<Rigidbody2D>();
+        rb.isKinematic = true;
+        rb.velocity = Vector3.zero;
         heldItem.transform.SetParent(heldItemTransform);
         heldItem.transform.localPosition = Vector3.zero;
         heldItem.transform.localRotation = Quaternion.identity;
@@ -84,6 +91,17 @@ public class PlayerController : ActorController
         heldItem.transform.position = transform.position;
         heldItem.transform.SetParent(null);
         heldItem.GetComponent<Rigidbody2D>().isKinematic = false;
+        heldItem.GetComponent<Collider2D>().enabled = true;
+        heldItem = null;
+    }
+
+    void ThrowObject()
+    {
+        Vector3 mouseDirection = (Input.mousePosition - Camera.main.WorldToScreenPoint(heldItem.transform.position)).normalized;
+        heldItem.transform.SetParent(null);
+        Rigidbody2D rb = heldItem.GetComponent<Rigidbody2D>();
+        rb.isKinematic = false;
+        rb.velocity = mouseDirection * throwStrength;
         heldItem.GetComponent<Collider2D>().enabled = true;
         heldItem = null;
     }
