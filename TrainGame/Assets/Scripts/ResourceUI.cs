@@ -44,7 +44,7 @@ public class ResourceUI : MonoBehaviour
         }
     }
 
-    void UpdateUI(Resource.ResourceType type, float amount)
+    void UpdateUI(Resource.ResourceType type, int amount)
     {
         Debug.Log($"Updating {type}");
         //If the resource is gone and it isn't shown by default, remove the instance icon or don't bother creating it

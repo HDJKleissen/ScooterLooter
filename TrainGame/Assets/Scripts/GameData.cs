@@ -6,24 +6,24 @@ using UnityEngine;
 public class GameData
 {
     //Resources
-    public event Action<Resource.ResourceType, float> OnResourceChange;
+    public event Action<Resource.ResourceType, int> OnResourceChange;
 
-    Dictionary<Resource.ResourceType, float> Resources = new Dictionary<Resource.ResourceType, float>();
-    public void AddResource(Resource.ResourceType type, float amount)
+    Dictionary<Resource.ResourceType, int> Resources = new Dictionary<Resource.ResourceType, int>();
+    public void AddResource(Resource.ResourceType type, int amount)
     {
         if (Resources.ContainsKey(type))
         {
-            Resources[type] = Mathf.Clamp(Resources[type] + amount, 0, float.MaxValue);
+            Resources[type] = Mathf.Clamp(Resources[type] + amount, 0, int.MaxValue);
             OnResourceChange?.Invoke(type, amount);
         }
         else
         {
-            Resources.Add(type, Mathf.Clamp(amount, 0, float.MaxValue));
+            Resources.Add(type, Mathf.Clamp(amount, 0, int.MaxValue));
             OnResourceChange?.Invoke(type, amount);
         }
     }
 
-    public float GetResource(Resource.ResourceType type)
+    public int GetResource(Resource.ResourceType type)
     {
         if (!Resources.ContainsKey(type))
             return 0;
