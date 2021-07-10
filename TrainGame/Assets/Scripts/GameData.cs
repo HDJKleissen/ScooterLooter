@@ -9,7 +9,9 @@ public class GameData
 
     public void AddResource(Resource.ResourceType type, float amount)
     {
-        if (Resources.ContainsKey(type))
+        if (!Resources.ContainsKey(type))
+            Resources.Add(type, Mathf.Clamp(amount, 0, float.MaxValue));
+        else    
             Resources[type] = Mathf.Clamp(Resources[type] + amount, 0, float.MaxValue);
     }
 }
