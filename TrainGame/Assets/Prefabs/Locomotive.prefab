@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7765727417488417874}
   - component: {fileID: 4154392502609696911}
   - component: {fileID: 2243573690063141856}
+  - component: {fileID: 3824770297937983811}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Locomotive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,3 +111,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.8, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &3824770297937983811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018435485564472072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677ffd58b9809364a8b631d4d17ff0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentGoal: {fileID: 0}
+  SpeedPerSec: 0

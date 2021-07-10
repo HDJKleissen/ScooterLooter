@@ -5,24 +5,26 @@ using UnityEngine;
 public class CartMovement : MonoBehaviour
 {
     public Waypoint CurrentGoal;
-    public int SpeedPerSec;
+    public float SpeedPerSec;
 
     // Update is called once per frame
     void Update()
     {
-        if(CurrentGoal != null){
-        var movement = SpeedPerSec * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position ,CurrentGoal.gameObject.transform.position, movement);
-        if(CurrentGoal.transform.position == transform.position)
+        if(CurrentGoal != null)
         {
-            if(CurrentGoal.DestroyCartOnContact)
+            var movement = SpeedPerSec * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position ,CurrentGoal.gameObject.transform.position, movement);
+            if(CurrentGoal.transform.position == transform.position)
             {
-                Destroy(gameObject);
+                if(CurrentGoal.DestroyCartOnContact)
+                {
+                   Destroy(gameObject);
+                }
+                if(CurrentGoal.nextWaypoint != null)
+                {
+                    CurrentGoal = CurrentGoal.nextWaypoint;
+                }
             }
-            if(CurrentGoal.nextWaypoint != null){
-                CurrentGoal = CurrentGoal.nextWaypoint;
-            }
-        }
         }
     }
 }

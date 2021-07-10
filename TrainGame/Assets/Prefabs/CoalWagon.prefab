@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2147450869286670537}
   - component: {fileID: 2307493063122122837}
   - component: {fileID: 7678998004649980995}
+  - component: {fileID: 135686002107297308}
   m_Layer: 0
   m_Name: CoalWagon
   m_TagString: Untagged
@@ -110,3 +111,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &135686002107297308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8509914244349282920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677ffd58b9809364a8b631d4d17ff0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentGoal: {fileID: 0}
+  SpeedPerSec: 0
