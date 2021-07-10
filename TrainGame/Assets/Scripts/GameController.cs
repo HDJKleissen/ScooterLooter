@@ -7,9 +7,12 @@ public class GameController : UnitySingleton<GameController>
     public PlayerController Player;
 
     public TrainController Train;
+
+    public GameData Data;
     
     void Start()
     {
+        Data = new GameData();
         DontDestroyOnLoad(gameObject);
     }
 
