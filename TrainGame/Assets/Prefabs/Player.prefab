@@ -44,12 +44,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShootFromPosition: {x: 0, y: 0, z: 0}
-  BulletPrefab: {fileID: 0}
-  MaxShots: 0
-  ShotsRemaining: 0
-  TimeBetweenShots: 0
-  TimeBetweenReloads: 0
-  BulletSpeed: 0
+  BulletPrefab: {fileID: 2542933947316825999, guid: c6145678d4fa618488a80ba82005085a, type: 3}
+  MaxShots: 6
+  ShotsRemaining: 6
+  TimeBetweenShots: 0.5
+  TimeBetweenReloads: 1.5
+  BulletSpeed: 10
 --- !u!1 &6357887442600848110
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &6357887443695107343
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,13 +173,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6357887443695107343}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.575, z: 0.575}
+  m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6357887442600848097}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
 --- !u!212 &6357887443695107328
 SpriteRenderer:
   m_ObjectHideFlags: 0

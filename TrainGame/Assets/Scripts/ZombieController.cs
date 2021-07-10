@@ -7,7 +7,7 @@ public class ZombieController : NPCController
     public Sprite[] spriteChoices;
 
     SpriteRenderer spriteRenderer;
-    BoxCollider trainCollider;
+    BoxCollider2D trainCollider;
 
 
     bool changeIdleDirection = true;
@@ -48,10 +48,10 @@ public class ZombieController : NPCController
         Vector3 playerPos = GameController.Instance.Player.transform.position;
         if (trainCollider == null)
         {
-            trainCollider = GameController.Instance.Train.GetComponent<BoxCollider>();
+            trainCollider = GameController.Instance.Train.GetComponent<BoxCollider2D>();
         }
 
-        playerPos.y = 0;
+        playerPos.z = 0;
         currentBehaviour = ZombieDirector.GetBehaviour(this);
         switch (currentBehaviour)
         {
@@ -72,7 +72,7 @@ public class ZombieController : NPCController
                     }
                     else
                     {
-                        return new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+                        return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
                     }
                 }
                 else
@@ -82,7 +82,7 @@ public class ZombieController : NPCController
             case ZombieBehaviours.ATTACK_TRAIN:
                 if (chooseTrainAttackPosition)
                 {
-                    trainAttackPosition = new Vector3(Random.Range(trainCollider.bounds.min.x, trainCollider.bounds.max.x), 0, Random.Range(trainCollider.bounds.min.y, trainCollider.bounds.max.y));
+                    trainAttackPosition = new Vector3(Random.Range(trainCollider.bounds.min.x, trainCollider.bounds.max.x), Random.Range(trainCollider.bounds.min.y, trainCollider.bounds.max.y));
                 }
                 if (attackingTrain)
                 {
@@ -91,6 +91,7 @@ public class ZombieController : NPCController
                 return (trainAttackPosition - transform.position).normalized;
             case ZombieBehaviours.FOLLOW_PLAYER:
                 ResetTrainBools();
+                Debug.DrawRay(transform.position, playerPos - transform.position, Color.green);
                 return (playerPos - transform.position).normalized;
 
             default:
