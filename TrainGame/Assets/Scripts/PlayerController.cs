@@ -73,6 +73,7 @@ public class PlayerController : ActorController
     {
         heldItem = item;
         heldItem.GetComponent<Collider2D>().enabled = false;
+        heldItem.GetComponent<Rigidbody2D>().isKinematic = true;
         heldItem.transform.SetParent(heldItemTransform);
         heldItem.transform.localPosition = Vector3.zero;
         heldItem.transform.localRotation = Quaternion.identity;
@@ -82,6 +83,7 @@ public class PlayerController : ActorController
     {
         heldItem.transform.position = transform.position;
         heldItem.transform.SetParent(null);
+        heldItem.GetComponent<Rigidbody2D>().isKinematic = false;
         heldItem.GetComponent<Collider2D>().enabled = true;
         heldItem = null;
     }
