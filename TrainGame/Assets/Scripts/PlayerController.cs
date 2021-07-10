@@ -20,7 +20,15 @@ public class PlayerController : ActorController
     protected override void Update()
     {
         base.Update();
+        HandleInput();
 
+        Vector3 mousePlayerDiff = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
+        //TODO: set gun held distance from player to more meaningful value
+        currentGun.transform.position = transform.position + mousePlayerDiff.normalized;
+    }
+
+    void HandleInput()
+    {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             if (heldItem == null)
@@ -28,10 +36,6 @@ public class PlayerController : ActorController
             else
                 DropObject();
         }
-
-        Vector3 mousePlayerDiff = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
-        //TODO: set gun held distance from player to more meaningful value
-        currentGun.transform.position = transform.position + mousePlayerDiff.normalized;
     }
 
     void TryPickup()
