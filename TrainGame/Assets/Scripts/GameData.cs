@@ -18,7 +18,7 @@ public class GameData
         }
         else
         {
-            Resources.Add(type, amount);
+            Resources.Add(type, Mathf.Clamp(amount, 0, float.MaxValue));
             OnResourceChange?.Invoke(type, amount);
         }
     }
