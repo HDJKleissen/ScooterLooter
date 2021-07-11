@@ -18,6 +18,13 @@ public class MapPlayerController : MonoBehaviour
         if(MapGameController.Instance.target != null && transform.position != MapGameController.Instance.target.transform.position)
         {
             transform.Translate((MapGameController.Instance.target.transform.position - transform.position).normalized * Speed * Time.deltaTime);
+            MapGameController.Instance.travelling = true;
+            if (transform.position == MapGameController.Instance.target.transform.position)
+            {
+                MapGameController.Instance.target.travelled = true;
+                MapGameController.Instance.travelling = false;
+                MapGameController.Instance.target.DrawRoads();
+            }
         }
     }
 }

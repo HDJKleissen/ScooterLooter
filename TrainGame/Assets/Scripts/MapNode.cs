@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MapNode : MonoBehaviour
 {
@@ -12,6 +14,12 @@ public class MapNode : MonoBehaviour
     Material lineMaterial;
     [SerializeField]
     string SceneName;
+
+    Button button;
+    private void Awake()
+    {
+        button = GetComponentInChildren<Button>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +40,12 @@ public class MapNode : MonoBehaviour
         }
     }
 
-    void DrawRoads()
+    private void Update()
+    {
+        button.gameObject.SetActive(MapGameController.Instance.target == this && !MapGameController.Instance.travelling);
+    }
+
+    public void DrawRoads()
     {
         for(int i = 0; i < children.Count; i++)
         {
@@ -47,6 +60,11 @@ public class MapNode : MonoBehaviour
             line.startWidth = .5f;
             line.endWidth = .5f;
         }
+    }
+
+    public void SwitchScene()
+    {
+        SceneManager.LoadScene(SceneName);
     }
 
     private void OnDrawGizmos()
