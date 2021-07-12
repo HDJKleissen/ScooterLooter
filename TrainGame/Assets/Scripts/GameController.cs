@@ -9,7 +9,9 @@ public class GameController : UnitySingleton<GameController>
     public TrainController Train;
 
     public GameData Data = new GameData();
-    
+
+    public GameObject EventPopupPrefab, EventPopupGO;
+
     void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -17,9 +19,24 @@ public class GameController : UnitySingleton<GameController>
 
     private void Update()
     {
-        if (Train.IsStopped && !Player.gameObject.activeInHierarchy)
+        if (Train != null && Player != null)
         {
-            Player.gameObject.SetActive(true);
+            if (Train.IsStopped && !Player.gameObject.activeInHierarchy)
+            {
+                Player.gameObject.SetActive(true);
+            }
         }
+    }
+
+    public void CreateEventPopup(EventData eventData)
+    {
+        EventPopupGO = Instantiate(EventPopupPrefab);
+        EventPopupGO.GetComponent<EventPopup>().StartPopup(eventData);
+    }
+
+    public void DestroyEventPopup()
+    {
+        Destroy(EventPopupGO.gameObject);
+        EventPopupGO = null;
     }
 }
