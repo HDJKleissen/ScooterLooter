@@ -18,7 +18,8 @@ public class TrainResourceCollector : MonoBehaviour
             GameController.Instance.Data.AddResource(resource.type, resource.value);
             resource.gameObject.GetComponent<Collider2D>().enabled = false;
             resource.gameObject.AddComponent<Shrink>().StartShrink(1);
-            resource.gameObject.AddComponent<Rotate>();
+            Rotate rotation = resource.gameObject.AddComponent<Rotate>();
+            rotation.RotateVector = new Vector3(0, 0, 80);
             Destroy(resource.gameObject, 1);
         }
     }
