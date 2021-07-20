@@ -34,15 +34,14 @@ public abstract class ActorController : MonoBehaviour
     protected abstract Vector3 GetMovement();
 
     protected abstract void DoAttacking();
+    protected abstract void Die();
 
     public virtual void DealDamage(float damage)
     {
         CurrentHealth -= damage;
-
-        if(CurrentHealth < 0)
+        if (CurrentHealth <= 0)
         {
-            gameObject.SetActive(false);
+            Die();
         }
     }
-
 }
