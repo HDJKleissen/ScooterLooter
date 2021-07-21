@@ -15,7 +15,6 @@ public class EndScreenSpriteSpawner : MonoBehaviour
     void Start()
     {
         sprites = new Rotate[SpritesAmount];
-        //StartCoroutine("SpawnSprites");
         SpawnSprites();
     }
 
