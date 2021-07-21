@@ -15,7 +15,6 @@ public class EndScreenSpriteSpawner : MonoBehaviour
     void Start()
     {
         sprites = new Rotate[SpritesAmount];
-        //StartCoroutine("SpawnSprites");
         SpawnSprites();
     }
 
@@ -27,7 +26,6 @@ public class EndScreenSpriteSpawner : MonoBehaviour
             sprites[i].GetComponent<SpriteRenderer>().sprite = spriteImages[Random.Range(0, spriteImages.Length)];
             
             ResetSpriteThrow(i);
-            //yield return new WaitForSeconds(0.01f);
         }
     }
 
