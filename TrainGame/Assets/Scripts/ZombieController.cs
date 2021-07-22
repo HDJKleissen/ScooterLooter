@@ -113,4 +113,9 @@ public class ZombieController : NPCController
         }
         
     }
+
+    protected override void Die()
+    {
+        Destroy(gameObject);
+    }
 }

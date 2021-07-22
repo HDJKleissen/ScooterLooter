@@ -61,4 +61,9 @@ public class TrainController : ActorController
         base.DealDamage(damage);
         GameUIController.Instance.TrainHealthUI.SetSliderValue(1 - (MaxHealth - CurrentHealth)/MaxHealth);
     }
+
+    protected override void Die()
+    {
+        GameController.Instance.GameOver();
+    }
 }

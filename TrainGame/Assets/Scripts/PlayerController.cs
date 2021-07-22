@@ -118,4 +118,9 @@ public class PlayerController : ActorController
             currentGun.Fire();
         }
     }
+
+    protected override void Die()
+    {
+        GameController.Instance.GameOver();
+    }
 }

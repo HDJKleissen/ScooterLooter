@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : UnitySingleton<GameController>
 {
@@ -38,5 +40,10 @@ public class GameController : UnitySingleton<GameController>
     {
         Destroy(EventPopupGO.gameObject);
         EventPopupGO = null;
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("RunLossScene");
     }
 }
