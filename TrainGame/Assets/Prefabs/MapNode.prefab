@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parents: []
-  children:
-  - {fileID: 0}
-  travelled: 1
+  children: []
+  visited: 0
+  looted: 0
+  index: 0
   lineMaterial: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   SceneName: 
 --- !u!58 &1029707616634969503
