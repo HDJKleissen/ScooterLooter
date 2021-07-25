@@ -58,7 +58,6 @@ public class MapGameController : UnitySingleton<MapGameController>
             MapNode node = nodes.Find((x) => x.index == data.index);
             for (int i = 0; i < data.children.Count; i++)
                 node.children.Add(nodes.Find((x) => x.index == data.children[i]));
-            //Debug.Log($"node {node.index} {node.children.Count}");
         }
     }
 
