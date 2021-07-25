@@ -36,11 +36,11 @@ public class ResourceUI : MonoBehaviour
     private void Start()
     {
         //Subscribe to the GameData event
-        GameController.Instance.Data.OnResourceChange += UpdateUI;
+        InterSceneData.OnResourceChange += UpdateUI;
         //Set initial values
         for (int i = 0; i < resourceSettings.Count; i++)
         {
-            UpdateUI(resourceSettings[i].Type, GameController.Instance.Data.GetResource(resourceSettings[i].Type));
+            UpdateUI(resourceSettings[i].Type, InterSceneData.GetResource(resourceSettings[i].Type));
         }
     }
 

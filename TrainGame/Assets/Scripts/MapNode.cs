@@ -8,13 +8,18 @@ public class MapNode : MonoBehaviour
 {
     public List<MapNode> parents;
     public List<MapNode> children;
-    public bool travelled = false;
+    [HideInInspector]
+    public bool visited = false;
+    [HideInInspector]
+    public bool looted = false;
+    public int index = -1;
 
     [SerializeField]
     Material lineMaterial;
     [SerializeField]
     string SceneName;
 
+    static int nextNodeIndex = 0;
     Button button;
     private void Awake()
     {
@@ -23,7 +28,12 @@ public class MapNode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (travelled)
+        if(index == -1)
+        {
+            index = nextNodeIndex;
+            nextNodeIndex++;
+        }
+        if (visited)
             DrawRoads();
 
         for (int i = 0; i < children.Count; i++)
@@ -34,7 +44,6 @@ public class MapNode : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log("Boop");
             if (parents.Contains(MapGameController.Instance.target))
                 MapGameController.Instance.target = this;
         }
@@ -42,7 +51,7 @@ public class MapNode : MonoBehaviour
 
     private void Update()
     {
-        button.gameObject.SetActive(MapGameController.Instance.target == this && !MapGameController.Instance.travelling);
+        button.gameObject.SetActive(MapGameController.Instance.target == this && !MapGameController.Instance.travelling && !looted);
     }
 
     public void DrawRoads()
@@ -64,6 +73,8 @@ public class MapNode : MonoBehaviour
 
     public void SwitchScene()
     {
+        looted = true;
+        MapGameController.Instance.Save();
         SceneManager.LoadScene(SceneName);
     }
 

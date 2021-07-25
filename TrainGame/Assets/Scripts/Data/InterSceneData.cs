@@ -3,13 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameData
+public static class InterSceneData
 {
     //Resources
-    public event Action<Resource.ResourceType, int> OnResourceChange;
+    public static event Action<Resource.ResourceType, int> OnResourceChange;
+    //Map Data
+    public static MapData Map;
 
-    Dictionary<Resource.ResourceType, int> Resources = new Dictionary<Resource.ResourceType, int>();
-    public void AddResource(Resource.ResourceType type, int amount)
+    static Dictionary<Resource.ResourceType, int> Resources = new Dictionary<Resource.ResourceType, int>();
+
+
+    public static void AddResource(Resource.ResourceType type, int amount)
     {
         if (Resources.ContainsKey(type))
         {
@@ -23,7 +27,7 @@ public class GameData
         }
     }
 
-    public int GetResource(Resource.ResourceType type)
+    public static int GetResource(Resource.ResourceType type)
     {
         if (!Resources.ContainsKey(type))
             return 0;

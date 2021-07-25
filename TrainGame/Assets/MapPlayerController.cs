@@ -21,7 +21,7 @@ public class MapPlayerController : MonoBehaviour
             MapGameController.Instance.travelling = true;
             if (transform.position == MapGameController.Instance.target.transform.position)
             {
-                MapGameController.Instance.target.travelled = true;
+                MapGameController.Instance.target.visited = true;
                 MapGameController.Instance.travelling = false;
                 MapGameController.Instance.target.DrawRoads();
             }
