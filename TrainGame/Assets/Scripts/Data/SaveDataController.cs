@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
-public class SaveDataController : MonoBehaviour
+public static class SaveDataController
 {
-    // Start is called before the first frame update
-    void Start()
+    public static void SaveRun()
     {
-        
+        string savefile = "";
+        savefile += JsonUtility.ToJson(InterSceneData.Map);
+        File.WriteAllText(Application.persistentDataPath + "/CurrentRun.dat", savefile);
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void LoadRun()
     {
-        
+        string savefile = File.ReadAllText(Application.persistentDataPath + "/CurrentRun.dat");
+        MapData map = JsonUtility.FromJson<MapData>(savefile);
+        InterSceneData.Map = map;
     }
 }
