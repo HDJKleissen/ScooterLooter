@@ -10,8 +10,6 @@ public class GameController : UnitySingleton<GameController>
 
     public TrainController Train;
 
-    public GameData Data = new GameData();
-
     public GameObject EventPopupPrefab, EventPopupGO;
 
     void Start()

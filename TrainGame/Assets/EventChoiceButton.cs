@@ -58,7 +58,7 @@ public class EventChoiceButton : MonoBehaviour
         {
             foreach (KeyValuePair<Resource.ResourceType, int> kvp in eventRewardData.Rewards)
             {
-                GameController.Instance.Data.AddResource(kvp.Key, kvp.Value);
+                InterSceneData.AddResource(kvp.Key, kvp.Value);
             }
         }
 

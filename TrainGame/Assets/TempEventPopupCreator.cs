@@ -44,9 +44,9 @@ public class TempEventPopupCreator : MonoBehaviour
                         {
                             Rewards = new Dictionary<Resource.ResourceType, int>()
                             {
-                                { Resource.ResourceType.Ammunition, -GameController.Instance.Data.GetResource(Resource.ResourceType.Ammunition)},
-                                { Resource.ResourceType.Food, -GameController.Instance.Data.GetResource(Resource.ResourceType.Ammunition)},
-                                { Resource.ResourceType.Fuel, -GameController.Instance.Data.GetResource(Resource.ResourceType.Ammunition)},
+                                { Resource.ResourceType.Ammunition, -InterSceneData.GetResource(Resource.ResourceType.Ammunition)},
+                                { Resource.ResourceType.Food, -InterSceneData.GetResource(Resource.ResourceType.Ammunition)},
+                                { Resource.ResourceType.Fuel, -InterSceneData.GetResource(Resource.ResourceType.Ammunition)},
                             }
                         }
                     }
@@ -60,9 +60,9 @@ public class TempEventPopupCreator : MonoBehaviour
                         {
                             Rewards = new Dictionary<Resource.ResourceType, int>()
                             {
-                                { Resource.ResourceType.Ammunition, -GameController.Instance.Data.GetResource(Resource.ResourceType.Ammunition)/3},
-                                { Resource.ResourceType.Food, -GameController.Instance.Data.GetResource(Resource.ResourceType.Ammunition)/3},
-                                { Resource.ResourceType.Fuel, -GameController.Instance.Data.GetResource(Resource.ResourceType.Ammunition)/3},
+                                { Resource.ResourceType.Ammunition, -InterSceneData.GetResource(Resource.ResourceType.Ammunition)/3},
+                                { Resource.ResourceType.Food, -InterSceneData.GetResource(Resource.ResourceType.Ammunition)/3},
+                                { Resource.ResourceType.Fuel, -InterSceneData.GetResource(Resource.ResourceType.Ammunition)/3},
                             }
                         }
                     }

@@ -15,7 +15,7 @@ public class TrainResourceCollector : MonoBehaviour
         Resource resource = collision.gameObject.GetComponent<Resource>();
         if(resource != null)
         {
-            GameController.Instance.Data.AddResource(resource.type, resource.value);
+            InterSceneData.AddResource(resource.type, resource.value);
             resource.gameObject.GetComponent<Collider2D>().enabled = false;
             resource.gameObject.AddComponent<Shrink>().StartShrink(1);
             Rotate rotation = resource.gameObject.AddComponent<Rotate>();
