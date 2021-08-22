@@ -163,8 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994f9c72033b8254097d313b5c371737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1759477222}
-  travelling: 0
+  Target: {fileID: 0}
+  Travelling: 0
+  RandomScavengeSceneNames:
+  - RealTimeScene
   NodePrefab: {fileID: 3293232732229755680, guid: 695a417d28126634ea613af5ae224cb1, type: 3}
 --- !u!4 &501833389
 Transform:
@@ -690,17 +692,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4772735660737851438, guid: 695a417d28126634ea613af5ae224cb1, type: 3}
   m_PrefabInstance: {fileID: 1540518603}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1759477222 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3293232732229755680, guid: 695a417d28126634ea613af5ae224cb1, type: 3}
-  m_PrefabInstance: {fileID: 2409121229746774234}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 544f0a5cf0c276b45a4ea09a3a696ccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1766261423 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3293232732229755680, guid: 695a417d28126634ea613af5ae224cb1, type: 3}

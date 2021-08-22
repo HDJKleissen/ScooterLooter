@@ -44,14 +44,14 @@ public class MapNode : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (parents.Contains(MapGameController.Instance.target))
-                MapGameController.Instance.target = this;
+            if (parents.Contains(MapGameController.Instance.Target))
+                MapGameController.Instance.Target = this;
         }
     }
 
     private void Update()
     {
-        button.gameObject.SetActive(MapGameController.Instance.target == this && !MapGameController.Instance.travelling && !looted);
+        button.gameObject.SetActive(MapGameController.Instance.Target == this && !MapGameController.Instance.Travelling && !looted);
     }
 
     public void DrawRoads()
@@ -75,7 +75,10 @@ public class MapNode : MonoBehaviour
     {
         looted = true;
         MapGameController.Instance.Save();
-        SceneManager.LoadScene(SceneName);
+        if (SceneName != "")
+            SceneManager.LoadScene(SceneName);
+        else
+            SceneManager.LoadScene(MapGameController.Instance.GetRandomScavengeScene());
     }
 
     private void OnDrawGizmos()

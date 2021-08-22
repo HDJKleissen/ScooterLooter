@@ -15,15 +15,15 @@ public class MapPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(MapGameController.Instance.target != null && transform.position != MapGameController.Instance.target.transform.position)
+        if(MapGameController.Instance.Target != null && transform.position != MapGameController.Instance.Target.transform.position)
         {
-            transform.Translate((MapGameController.Instance.target.transform.position - transform.position).normalized * Speed * Time.deltaTime);
-            MapGameController.Instance.travelling = true;
-            if (transform.position == MapGameController.Instance.target.transform.position)
+            transform.Translate((MapGameController.Instance.Target.transform.position - transform.position).normalized * Speed * Time.deltaTime);
+            MapGameController.Instance.Travelling = true;
+            if (transform.position == MapGameController.Instance.Target.transform.position)
             {
-                MapGameController.Instance.target.visited = true;
-                MapGameController.Instance.travelling = false;
-                MapGameController.Instance.target.DrawRoads();
+                MapGameController.Instance.Target.visited = true;
+                MapGameController.Instance.Travelling = false;
+                MapGameController.Instance.Target.DrawRoads();
             }
         }
     }

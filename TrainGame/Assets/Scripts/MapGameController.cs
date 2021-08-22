@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class MapGameController : UnitySingleton<MapGameController>
 {
-    public MapNode target;
-    public bool travelling;
+    public MapNode Target;
+    public bool Travelling;
+
+    [SerializeField]
+    [Tooltip("The list of sceneNames that can be used as random scavenging scenes")]
+    List<string> RandomScavengeSceneNames;
 
     [Header("Prefabs")]
     [SerializeField]
@@ -32,6 +36,11 @@ public class MapGameController : UnitySingleton<MapGameController>
 
     }
 
+    public string GetRandomScavengeScene()
+    {
+        return RandomScavengeSceneNames.GetRandom();
+    }
+
     public void Load()
     {
         foreach (Transform child in transform)
@@ -48,7 +57,7 @@ public class MapGameController : UnitySingleton<MapGameController>
             nodes.Add(instance);
             instance.index = node.index;
             if (instance.index == InterSceneData.Map.target)
-                target = instance;
+                Target = instance;
             instance.visited = node.visited;
             instance.looted = node.looted;
         }
@@ -82,7 +91,7 @@ public class MapGameController : UnitySingleton<MapGameController>
         {
             PlayerPosition = player.transform.position,
             Nodes = nodeData,
-            target = target.index
+            target = Target.index
         };
     }
 }
